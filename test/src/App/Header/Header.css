@@ -1,0 +1,170 @@
+.header {
+    width: 100%;
+    height: auto;
+    position: absolute;
+}
+.header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 3vw;
+}
+                                    /*mobile menu*/
+.header-nav__menu {
+    display: none;
+}
+.header-nav__checkbox{
+    display: none;
+}  
+.header-nav__logo{
+    font-weight: bold;
+    font-size: 2vw;
+    color: #20212f;
+    cursor: pointer;
+}
+.header-nav__list{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+.header-nav__list > li{
+    font-size: .9vw;
+    text-transform: uppercase;
+    font-weight: 600;  
+    color: #20212f;
+    position: relative;
+    margin-left: 2vw;
+}
+.header-nav__link:after {
+    position: absolute;
+    left: 50%;
+    content: '';
+    height: 2px;
+    background: #20212f;
+    transition: all 0.15s linear;
+    width: 0;
+    bottom: 0;  
+}
+.header-nav__item{    
+    cursor: pointer;
+}
+.header-nav__link {
+    text-decoration: none;
+    color: #20212f;
+}
+.header-nav__link:visited{
+    color: #20212f;
+}
+.header-nav__link:hover:after {
+    width: 100%;
+    margin-left: -50%;
+}
+.header-nav__search {
+    width: 2.2vw;
+    height: 2.2vw;
+    background-image: url('../../assets/search.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1.3vw 1.3vw;
+}
+.header-nav__search:hover{
+    border-radius: 100%;
+    background-image: url('../../assets/search-white.png');
+    background-color: red;
+    cursor: pointer;
+}
+.header-nav__ring {
+    width: 2.2vw;
+    height: 2.2vw;
+    background-image: url('../../assets/ring.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1.5vw 1.3vw;
+}
+.header-nav__ring:hover{
+    border-radius: 100%;
+    background-image: url('../../assets/ring-white.png');
+    background-color: red;
+    cursor: pointer;
+}
+@media screen and (max-width:992px){
+    body {
+        overflow-x: hidden;
+    }
+    .header-nav__checkbox {
+        display: block;
+        position: fixed;
+        width: 30px;
+        height: 30px;
+        margin: 0;
+        left: 15px; top: 15px;
+        opacity: 0;
+    }
+    .header-nav__menu {
+        display: block;
+        position: fixed;
+        left: 15px; top: 15px;
+        z-index: 2;
+        
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect y='12' width='30' height='6'/></svg>");
+        background-size: contain;
+    }
+    .header-nav__checkbox + .header-nav__menu, .header-nav__list {
+        transition: left 0.2s;
+    }      
+    .header-nav__checkbox:checked + .header-nav__menu {
+        left: 270px;
+    }      
+    .header-nav__checkbox:checked ~ .text {
+        left: 270px;
+        box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+    }      
+    .header-nav__checkbox:checked ~ .header-nav__list {
+        left: 270px;
+        box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+    }
+    .header-nav__list {
+        width: 270px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        position: fixed;
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%,rgba(0,0,0,100) 100%);
+        top: 0;
+        left: 0;
+        z-index: 100;
+        margin: 0 0 0 -280px !important;
+    }
+    .header-nav__list li {
+        width: 100%;
+        margin-left: 0 !important;
+        background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+        text-align: center;
+        margin:  0 !important;
+    }
+    .header-nav__link {
+        display: block;
+        padding: 1em;
+        background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+        color: white;
+        font-size: 14px;
+        text-decoration: none;
+        transition: color 0.2s, background 0.5s;
+    }
+    .header-nav__link:visited {
+        color: #fff;
+    }
+    .header-nav__link:hover {
+        background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(35, 56, 150, 0.65) 100%);
+      }
+    .header-nav__logo {
+        width: 100%;
+        margin-top: 2vw;
+        font-size: 30px;
+        text-align: center;
+    }
+}
